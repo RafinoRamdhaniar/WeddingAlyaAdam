@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Adam & Alya</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 844px;
+            /* background: url('asset/homepage.png') no-repeat center center fixed; */
+            background-color: #6e7467;
+            background-size: cover;
+            transition: opacity 1s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Gambar Amplop */
+        #amplop {
+            /* position: absolute; */
+            /* display: flex; */
+            width: 185px;
+            height: 132px;
+            top: 309px;
+            left: 103px;
+            /* z-index: 2; */
+        }
+
+        /* Button */
+        #buttonContainer {
+            position: absolute;
+            width: 250px;
+            bottom: 10%;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        /* Video Animasi */
+        #videoContainer {
+            display: none;
+            /* position: absolute; */
+            width: 100%;
+            height: 100%;
+            /* background: black; */
+            justify-content: center;
+            align-items: center;
+            z-index: 4;
+        }
+
+        #animasiVideo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Responsif Mobile */
+        @media (max-width: 600px) {
+            #amplop {
+                width: 70%;
+                top: 25%;
+            }
+
+            #buttonContainer {
+                width: 60%;
+                bottom: 8%;
+            }
+
+            #videoContainer {
+                width: 100vw;
+                height: 100vh;
+            }
+
+            #animasiVideo {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Gambar Amplop -->
+    <img id="amplop" src="\asset\Amplop.svg" alt="Amplop">
+
+    <!-- Tombol -->
+    <img id="buttonContainer" src="\asset\Button.png" alt="Buka Undangan">
+
+    <!-- Video Animasi -->
+    <div id="videoContainer">
+        <!-- <video id="animasiVideo" autoplay muted>
+            <source src="asset\stop motion.gif" type="video/mp4">
+            Browser Anda tidak mendukung video ini.
+        </video> -->
+        <img style="width: 100%; height: 100%; margin-top: 51px;" src="\asset/animasi awal.gif" alt="Animasi GIF">
+    </div>
+
+    <script>
+    let button = document.getElementById("buttonContainer");
+    let amplop = document.getElementById("amplop");
+    let videoContainer = document.getElementById("videoContainer");
+
+    button.addEventListener("click", function () {
+        console.log("Tombol diklik, animasi GIF mulai tampil...");
+        button.style.display = "none";
+        amplop.style.display = "none";
+        videoContainer.style.display = "flex";
+
+        setTimeout(function () {
+            console.log("GIF selesai (simulasi), pindah ke main.html...");
+            localStorage.setItem("videoPlayed", "true");
+            window.location.href = "main.html";
+        }, 2300); // 5000ms = 5 detik
+    });
+    </script>
+
+
+</body>
+</html>
